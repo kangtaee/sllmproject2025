@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gemma 2B Text Generator</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="gemma2_js.js" defer></script>
+</head>
+
+<body>
+  <div class="p-5 bg-primary text-white text-center">
+    <h1>강태현의 첫 지능 채팅 서비스</h1>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Gemma 2B Text Generator</h2>
+
+    <div class="mb-3">
+      <label for="input" class="form-label">입력:</label>
+      <textarea id="input" class="form-control" rows="4" placeholder="예: 일본인의 기원은 한국인인가?"></textarea>
+    </div>
+
+    <button class="btn btn-primary mb-4" onclick="sendRequest()">Generate</button>
+
+    <div class="mb-3">
+      <label for="responseBox" class="form-label">출력:</label>
+      <div id="responseBox" class="form-control" style="min-height: 150px; white-space: pre-wrap;">
+        결과가 여기에 표시됩니다.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
