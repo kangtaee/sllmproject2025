@@ -1,36 +1,95 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Gemma 2B Text Generator</title>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Phi-2 텍스트 생성기</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #212529;
+    }
 
-  <script src="gemma2_js.js" defer></script>
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      text-align: center;
+      color: #0d6efd;
+      margin-bottom: 30px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    #responseBox {
+      white-space: pre-wrap;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 15px;
+      background-color: #f1f3f5;
+      min-height: 300px;  /* 더 넉넉하게 표시되게! */
+      max-height: 600px;  /* (선택) 최대 높이 제한 */
+      overflow-y: auto;   /* 스크롤 가능하도록 */
+    }
+
+    .btn-generate {
+      background-color: #0d6efd;
+      color: white;
+      font-weight: 500;
+      border: none;
+    }
+
+    .btn-generate:hover {
+      background-color: #0b5ed7;
+    }
+
+    .elapsed {
+      font-size: 0.9rem;
+      color: #6c757d;
+      margin-top: 8px;
+      text-align: right;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #adb5bd;
+      margin-top: 40px;
+    }
+  </style>
 </head>
-
 <body>
-  <div class="p-5 bg-primary text-white text-center">
-    <h1>강태현의 첫 지능 채팅 서비스</h1>
-  </div>
-
-  <div class="container mt-4">
-    <h2>Gemma 2B Text Generator</h2>
+  <div class="container">
+    <h1>📘 강태현의 Phi-2 텍스트 생성기</h1>
 
     <div class="mb-3">
-      <label for="input" class="form-label">입력:</label>
-      <textarea id="input" class="form-control" rows="4" placeholder="예: 일본인의 기원은 한국인인가?"></textarea>
+      <label for="input" class="form-label">질문을 입력하세요</label>
+      <textarea id="input" class="form-control" rows="4" placeholder="예:Tell me how to lose weight"></textarea>
     </div>
 
-    <button class="btn btn-primary mb-4" onclick="sendRequest()">Generate</button>
+    <button class="btn btn-generate w-100 mb-3" onclick="sendRequest()">✏️ 생성하기</button>
 
     <div class="mb-3">
-      <label for="responseBox" class="form-label">출력:</label>
-      <div id="responseBox" class="form-control" style="min-height: 150px; white-space: pre-wrap;">
-        결과가 여기에 표시됩니다.
-      </div>
+      <label class="form-label">답변</label>
+      <div id="responseBox">AI가 생성한 답변이 여기에 표시됩니다.</div>
+      <div id="elapsed" class="elapsed"></div>
     </div>
   </div>
+
+  <footer>
+    Made with 🧠 by Team AI-2025 | Microsoft Phi-2 기반
+  </footer>
+
+  <script src="gemma2_js.js"></script>
 </body>
 </html>
