@@ -82,7 +82,7 @@ outputs = model.generate(
     **inputs,
     max_length=200, # 생성할 최대 토큰 수 (문장 길이 제한)
     temperature=0.8, #	생성할 때 랜덤성 조절 (0~1)
-    top_p=0.9, # 누적 확률 기반 샘플링 범위 (nucleus sampling)
+    top_p=0.9, # 누적 확률 기반 샘플링 범위 
     repetition_penalty=1.2,# 같은 단어 반복 억제 강화
     do_sample=True,
     eos_token_id=tokenizer.eos_token_id
