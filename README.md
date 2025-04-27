@@ -38,10 +38,10 @@ Microsoft의 **Phi-2** 모델을 활용하여 FastAPI 서버를 통해 사용자
 ## 4. 구현 화면
 
 
-![phicap1](https://github.com/kangtaee/sllmproject2025/blob/main/imgfile/phicap1.PNG)
+![phicap1](https://github.com/kangtaee/sllmproject2025/blob/main/imgfile/phicap3.PNG)
 
 
-![phicap2](https://github.com/kangtaee/sllmproject2025/blob/main/imgfile/phicap2.PNG)
+![phicap2](https://github.com/kangtaee/sllmproject2025/blob/main/imgfile/phicap1.PNG)
 
 ---
 
