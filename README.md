@@ -40,9 +40,21 @@ Microsoft의 **Phi-2** 모델을 활용하여 FastAPI 서버를 통해 사용자
 
 ![phicap1](https://github.com/kangtaee/sllmproject2025/blob/main/imgfile/phicap3.PNG)
 
+- 한국어 질문 ("세종대왕이 누구야?")에 대해 엉뚱하고 관련 없는 영어 답변을 생성함
+
+- 이는 Phi-2 모델이 기본적으로 영어 데이터 위주로 학습되어 있기 때문
+
+- 한국어 자연어 처리에 있어서는 fine-tuning 없이 성능을 기대하기 어려움
+
+---
 
 ![phicap2](https://github.com/kangtaee/sllmproject2025/blob/main/imgfile/phicap1.PNG)
 
+- 영어 질문 ("What is the difference between AI and machine learning?")에 대해 정확하고 논리적인 답변을 생성함
+
+- 응답 시간: 약 49.3초 소요
+
+- 답변 품질: 사실 기반, 문장 구조도 자연스러움
 ---
 
 ## 5. 핵심 코드 요약
