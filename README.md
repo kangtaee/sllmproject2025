@@ -37,10 +37,10 @@ Microsoft의 **Phi-2** 모델을 활용하여 FastAPI 서버를 통해 사용자
 
 ## 4. 구현 화면
 
-### 메인 입력창
+
 ![phicap1](./phicap1.png)
 
-### 답변 출력창
+
 ![phicap2](./phicap2.PNG)
 
 ---
