@@ -45,12 +45,54 @@ Microsoft의 **Phi-2** 모델을 활용하여 FastAPI 서버를 통해 사용자
 
 ---
 
-## 5. 주요 기능 요약
+## 5. ## 핵심 코드 요약
 
-- 자연어 질문 입력 → AI가 즉각적으로 답변 생성
-- 답변 생성 시간 표시
-- GPU 사용으로 빠른 추론 (GTX 1060 3GB 환경 기준)
-- 깔끔한 화이트톤 UI 적용
+### 1. 모델 로드 (GPU 사용)
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+
+tokenizer = AutoTokenizer.from_pretrained("microsoft/phi-2")
+model = AutoModelForCausalLM.from_pretrained(
+    "microsoft/phi-2",
+    device_map="auto",
+    torch_dtype=torch.float16
+)
+model.eval()
+```
+2. 질문 넣고 답변 생성
+ ```
+prompt = "Q: What is the difference between AI and machine learning?\nA:"
+inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+
+outputs = model.generate(
+    **inputs,
+    max_length=200,
+    temperature=0.8,
+    top_p=0.9,
+    repetition_penalty=1.2,
+    do_sample=True,
+    eos_token_id=tokenizer.eos_token_id
+)
+
+response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print(response)
+```
+3. FastAPI 서버 기본 뼈대
+```
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class TextRequest(BaseModel):
+    text: str
+
+@app.post("/generate")
+async def generate_text(req: TextRequest):
+    return {"generated": "답변 내용"}
+```
 
 ---
 
