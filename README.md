@@ -45,7 +45,7 @@ Microsoft의 **Phi-2** 모델을 활용하여 FastAPI 서버를 통해 사용자
 
 ---
 
-## 5. ## 핵심 코드 요약
+## 5. 핵심 코드 요약
 
 ### 1. 모델 로드 (GPU 사용)
 
@@ -61,7 +61,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 model.eval()
 ```
-2. 질문 넣고 답변 생성
+### 2. 질문 넣고 답변 생성
  ```
 prompt = "Q: What is the difference between AI and machine learning?\nA:"
 inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
@@ -79,7 +79,7 @@ outputs = model.generate(
 response = tokenizer.decode(outputs[0], skip_special_tokens=True)
 print(response)
 ```
-3. FastAPI 서버 기본 뼈대
+### 3. FastAPI 서버 기본 뼈대
 ```
 from fastapi import FastAPI
 from pydantic import BaseModel
